@@ -2,7 +2,6 @@ import Link from "next/link"
 import RenderCourse from "./RenderCourse"
 
 export default function ListClasses({ courses }) {
-  // console.log(courses)
   return (
     <div className="container px-4 pt-8">
       <div className="flex justify-between items-center mb-8">
@@ -24,7 +23,7 @@ export default function ListClasses({ courses }) {
         </div>
       </div>
       <div className="flex flex-wrap justify-start items-center -mx-4">
-        {courses.data.length > 0 ? (
+        {courses?.data?.length > 0 ? (
           courses.data.map((course, index) => {
             return <RenderCourse course={course} key={index} />
           })

@@ -4,10 +4,11 @@ import { CSSTransition } from "react-transition-group"
 import ArrowDown from "public/images/details-course/icon-arrow-down.svg"
 
 export default function Item({ name, id, child, active, toggle, children }) {
-  console.log(id, active)
+  // console.log(id, active, toggle)
   const [height, setHeight] = useState(() => 0)
 
   function cellHeight(event) {
+    // console.log(event)
     setHeight(event.offsetHeight)
   }
   return (

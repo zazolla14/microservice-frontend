@@ -11,7 +11,6 @@ import ListCategory from "src/pages/parts/ListCategories"
 import Footer from "src/components/Footer"
 
 function Home({ courses }) {
-  // console.log(courses)
   return (
     <Layout title="TODO Learn">
       <main>

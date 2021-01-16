@@ -11,6 +11,7 @@ import Features from "src/pages/parts/details-courses/Features"
 import Footer from "src/components/Footer"
 import CoursePhotos from "src/pages/parts/details-courses/CoursePhotos"
 import RenderPreview from "src/pages/parts/details-courses/RenderPreview"
+import RenderReviews from "src/pages/parts/details-courses/RenderReviews"
 
 import Student from "public/images/details-course/icon-student.svg"
 import Video from "public/images/details-course/icon-video.svg"
@@ -47,6 +48,11 @@ function DetailsCourse({ details }) {
       icon: <Certificate className="fill-current text-teal-500" />,
       meta: "Certificate",
       value: details?.certificate ? "Available" : "Unavailable",
+    },
+    {
+      icon: <Certificate className="fill-current text-teal-500" />,
+      meta: "Status",
+      value: details?.status === "draft" ? "Uncomplate" : "Complate",
     },
   ]
   return (
@@ -92,7 +98,7 @@ function DetailsCourse({ details }) {
       </section>
       <section className="container relative pt-24">
         <div className="absolute w-full top-0 transform -translate-y-1/2">
-          <div className="w-3/4 mx-auto">
+          <div className="w-5/6 mx-auto">
             <div className="flex flex-wrap justify-between">
               {features.map((feature, index) => {
                 return <Features feature={feature} key={index} />
@@ -174,6 +180,47 @@ function DetailsCourse({ details }) {
                 ) : (
                   <div className="w-full text-center py-12">
                     No Chapter Found
+                  </div>
+                )}
+              </div>
+            </section>
+            <section className="mt-10 w-2/3">
+              <h2 className="text-3xl font-semibold mb-6">
+                The <span className="text-teal-500">Instructor</span>
+              </h2>
+              <div className="flex items-center pl-2">
+                <img
+                  className="w-20 rounded-full object-cover overflow-hidden"
+                  src={details?.mentor?.profile ?? ""}
+                  alt={`profile ${details?.mentor?.name}`}
+                />
+                <div className="ml-6">
+                  <h1 className="text-2xl text-gray-900 font-medium">
+                    {details?.mentor?.name ?? "-"}
+                  </h1>
+                  <h2 className="text-xl text-gray-800 mt-1">
+                    {details?.mentor?.profession ?? "-"}
+                  </h2>
+                </div>
+              </div>
+            </section>
+            <section className="mt-10">
+              <div className="text-center">
+                <h2 className="text-3xl font-semibold mb-2">
+                  Happy <span className="text-teal-500">Students</span>
+                </h2>
+                <h3 className="text-gray-800 text-xl">
+                  Let's hear what they have to say about this Course
+                </h3>
+              </div>
+              <div className="flex flex-wrap justify-start items-center mt-10">
+                {details?.reviews.length > 0 ? (
+                  details?.reviews?.map((review, index) => (
+                    <RenderReviews key={index} review={review}></RenderReviews>
+                  ))
+                ) : (
+                  <div className="w-full text-center -py-12">
+                    Review Not Found
                   </div>
                 )}
               </div>

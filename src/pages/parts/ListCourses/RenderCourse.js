@@ -3,7 +3,6 @@ import Link from "next/link"
 import IconPlay from "public/images/icon-play.svg"
 
 export default function RenderCourse({ course }) {
-  console.log(course)
   return (
     <div className="w-1/4 px-4 mb-6">
       <div className="item relative">

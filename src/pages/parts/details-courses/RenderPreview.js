@@ -25,14 +25,13 @@ export default function RenderPreview({ chapters }) {
                       key={`${index2}-${lesson?.id}`}
                       className="relative hover:bg-gray-200 flex justify-between items-center pl-8 pr-4 py-2"
                     >
-                      <span className="text-gray-600">
+                      <span className="text-gray-500 font-medium tracking-wide">
                         {lesson?.name ?? "Lessons Name"}
                       </span>
                       {index2 === 0 && (
                         <Modal
                           content={(toggleModal) => (
                             <YouTube
-                              className="w-full"
                               videoId={lesson?.video}
                               id={lesson?.video}
                               opts={{

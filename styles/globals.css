@@ -7,48 +7,6 @@
   content: "";
 }
 
-.modal-close {
-  @apply absolute right-0 cursor-pointer inline-block;
-  width: 60px;
-  height: 60px;
-}
-.modal-close::before,
-.modal-close::after {
-  @apply absolute;
-  top: 50%;
-  left: 50%;
-  width: 30px;
-  height: 2px;
-  content: "";
-  background-color: black;
-  margin-left: -25%;
-}
-.modal-close::before {
-  transform: rotate(45deg);
-}
-.modal-close::after {
-  transform: rotate(-45deg);
-}
-
-.overlay {
-  @apply transition-all duration-500;
-}
-.overlay-enter {
-  opacity: 0;
-}
-.overlay-enter-active {
-  opacity: 1;
-}
-.overlay-exit {
-  opacity: 1;
-}
-.overlay-exit-active {
-  opacity: 0;
-}
-.overlay-enter-done {
-  opacity: 1;
-}
-
 .header-clipping {
   @apply relative;
 }
@@ -156,4 +114,90 @@
   @apply fixed;
   opacity: 1;
   bottom: 0;
+}
+
+.modal-close {
+  @apply absolute right-0 cursor-pointer inline-block;
+  width: 60px;
+  height: 60px;
+}
+.modal-close::before,
+.modal-close::after {
+  @apply absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 2px;
+  content: "";
+  background-color: black;
+  margin-left: -25%;
+}
+.modal-close::before {
+  transform: rotate(45deg);
+}
+.modal-close::after {
+  transform: rotate(-45deg);
+}
+
+.overlay {
+  @apply transition-all duration-500;
+}
+.overlay-enter {
+  opacity: 0;
+}
+.overlay-enter-active {
+  opacity: 1;
+}
+.overlay-exit {
+  opacity: 1;
+}
+.overlay-exit-active {
+  opacity: 0;
+}
+.overlay-enter-done {
+  opacity: 1;
+}
+
+.accordion-item {
+  @apply transition-all duration-300;
+}
+.accordion-item.enter {
+  opacity: 0;
+}
+.accordion-item.enter.active {
+  opacity: 1;
+}
+.accordion-itm.exit {
+  opacity: 1;
+}
+.accordion-item.exit.active {
+  opacity: 0;
+}
+
+svg#svg-star {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -9999px;
+  top: -9999px;
+}
+.stars {
+  @apply relative inline-flex;
+  min-width: 200px;
+}
+
+.stars .star {
+  @apply absolute;
+  clip-path: url(#star);
+  /* mask: url(../public/images/icon-star.svg) no-repeat center left; */
+}
+
+.stars .star:not(.placeholder) {
+  @apply bg-yellow-400;
+  z-index: 2;
+}
+
+.stars .star.placeholder {
+  @apply bg-gray-200;
+  z-index: 1;
 }
